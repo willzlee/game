@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>generate sentence</title>
+        <link rel="stylesheet" type="text/css" href="language.css" media="screen" />
+        <script src='request.js'></script>
+        <script src='component.js' defer></script>
+    </head>
+    <body>
+    <script>
+        let host = 'https://linguatools-sentence-generating.p.rapidapi.com/realise';
+        let param = '?';
+
+        function addParam(name, val) {
+            param += name + '=' + val + '&';
+        }
+
+        function generate(){
+            const sentence = document.getElementById('sentence');
+            host += param;
+            host = host.slice(0, host.length-1);
+            getSentence(host).then(data => {
+                if(data.result === 'OK') {
+                    sentence.innerHTML = data.sentence;
+                } else if(data.result === 'error') {
+                    sentence.innerHTML = data.error_message;
+                } else {
+                    sentence.innerHTML = 'please try again';
+                }
+            })
+        }
+
+        function reset(){
+            host = 'https://linguatools-sentence-generating.p.rapidapi.com/realise';
+            param = '?';
+            document.getElementById('sentence').innerHTML = '';
+        }
+    </script>
+        <p>Create a sentence by entering a subject, a verb, an object, and tense</p>
+        <p>You can also use an optional negated parameter</p>
+  
+        <div id='sentencetype'><span class="input_label">Type:</span> <edit-param></edit-param></div>
+        <div id='subject'><span class="input_label">Subject:</span> <edit-param></edit-param></div>
+        <div id='verb'><span class="input_label">Verb:</span> <edit-param></edit-param></div>
+        <div id='object'><span class="input_label">Object:</span> <edit-param></edit-param></div>
+        <div id='tense'><span class="input_label">Tense:</span> <edit-param></edit-param></div>
+        <div id='negated'><span class="input_label">Negated:</span> <edit-param></edit-param> (optional)</div>
+
+        <div>
+            <button class='button' onclick="generate()">Generate Sentence</button>
+            <span class='reset' onclick="reset()">Reset</span>
+        </div>
+
+        <h3 id='sentence'></h3>
+    </body>
+</html> 
