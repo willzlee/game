@@ -6,35 +6,6 @@
         <script src='component.js' defer></script>
     </head>
     <body>
-    <script>
-        let host = 'https://linguatools-sentence-generating.p.rapidapi.com/realise';
-        let param = '?';
-
-        function addParam(name, val) {
-            param += name + '=' + val + '&';
-        }
-
-        function generate(){
-            const sentence = document.getElementById('sentence');
-            host += param;
-            host = host.slice(0, host.length-1);
-            getSentence(host).then(data => {
-                if(data.result === 'OK') {
-                    sentence.innerHTML = data.sentence;
-                } else if(data.result === 'error') {
-                    sentence.innerHTML = data.error_message;
-                } else {
-                    sentence.innerHTML = 'please try again';
-                }
-            })
-        }
-
-        function reset(){
-            host = 'https://linguatools-sentence-generating.p.rapidapi.com/realise';
-            param = '?';
-            document.getElementById('sentence').innerHTML = '';
-        }
-    </script>
         <p>Create a sentence by entering a subject, a verb, an object, and tense</p>
         <p>You can also use an optional negated parameter</p>
   
@@ -49,7 +20,35 @@
             <button class='button' onclick="generate()">Generate Sentence</button>
             <span class='reset' onclick="reset()">Reset</span>
         </div>
-
         <h3 id='sentence'></h3>
+        <script>
+            let host = 'https://linguatools-sentence-generating.p.rapidapi.com/realise';
+            let param = '?';
+
+            function addParam(name, val) {
+                param += name + '=' + val + '&';
+            }
+
+            function generate(){
+                const sentence = document.getElementById('sentence');
+                host += param;
+                host = host.slice(0, host.length-1);
+                getSentence(host).then(data => {
+                    if(data.result === 'OK') {
+                        sentence.innerHTML = data.sentence;
+                    } else if(data.result === 'error') {
+                        sentence.innerHTML = data.error_message;
+                    } else {
+                        sentence.innerHTML = 'please try again';
+                    }
+                })
+            }
+
+            function reset(){
+                host = 'https://linguatools-sentence-generating.p.rapidapi.com/realise';
+                param = '?';
+                document.getElementById('sentence').innerHTML = '';
+            }
+        </script>
     </body>
 </html> 
