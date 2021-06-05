@@ -17,6 +17,6 @@ Separate networking activity from data and display logic
 ### Error handling
 
 ### Usage
-Open language.html and add values then click on the Generate button, a newly generated sentence will
+Open language.html, add values to the fields, then click on the Generate button, a newly generated sentence will
 be displayed. If an error occurs, the error message will be shown.
 
