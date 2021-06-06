@@ -1,7 +1,7 @@
 # Sentence Generator
 Use [rapidapi](https://rapidapi.com/developer/dashboard) api to generate sentence based on user input
 
-## Overall
+## Solution-1: Pure JS
 > reusable Web component
 
 > separate Request component
@@ -19,4 +19,6 @@ Separate networking activity from data and display logic
 ### Usage
 Open language.html, add values to the fields, then click on the Generate button, a newly generated sentence will
 be displayed. If an error occurs, the error message will be shown.
+
+## Solution-2: React
 
