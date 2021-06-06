@@ -1,0 +1,21 @@
+.form-control label {
+  display: inline-block;
+  width: 100px;
+  text-align: left;
+}
+.input-control {
+  margin: 10px;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.sentence {
+  margin: 20px 10px 10px 10px;
+}
