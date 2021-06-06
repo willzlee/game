@@ -19,6 +19,7 @@ Separate networking activity from data and display logic
 ### Usage
 Open language.html, add values to the fields, then click on the Generate button, a newly generated sentence will
 be displayed. If an error occurs, the error message will be shown.
+Note: you need to activate (click) the input field in order to add its value to params
 
 ## Solution-2: React
 
